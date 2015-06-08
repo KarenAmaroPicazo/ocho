@@ -4,8 +4,11 @@ xmlns:gap = "http://phonegap.com/ns/1.0"
 id = "com.phonegap.example"
 versionCode = "10"
 version = "1.0.0" >
+
 <!-- versionCode is optional and Android only -->
+
 <name>Acelerometro y Geolocalizacion</name>
+
 <description>
 Aplicacion que muestra los datos del acelerometro y Geolocalizacion
 </description>

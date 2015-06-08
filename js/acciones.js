@@ -7,7 +7,7 @@ document.addEventListener("deviceready",Dispositivo_Listo, false);
 
 // Cuando esta listo el dispositivo
 function Dispositivo_Listo() {
-Comienza()
+Comienza();
 }
 
 // Empieza la 'observacion' de la aceleracion
@@ -16,6 +16,7 @@ function Comienza() {
 //Actualiza la aceleracion cada 2 segundos
 //
 var opciones = { frequency: 2000 };
+
 watchID = navigator.accelerometer.watchAcceleration(Correcto, Error, opciones);
 navigator.geolocalizacion.getCurrentPosition(Localiza, ErrorLocalizacion);
 }
@@ -30,14 +31,12 @@ watchID = null;
 
 //Correcto: Toma una captura de la aceleracion
 function Correcto (aceleration) {
-
 var element = document.getElementById('acelerometro');
 
-element.innerHTML = 'Aceleration en X: ' + aceleration.x + '<br />' +
-                    'Aceleration en Y: ' + aceleration.y + '<br />' +
-                    'Aceleration en Z: ' + aceleration.z + '<br />' +
-                    'Intervalo: '      + aceleration.timestamp + '<br />' ;
-
+element.innerHTML = 'Aceleration en X: ' + acceleration.x + '<br />' +
+                    'Aceleration en Y: ' + acceleration.y + '<br />' +
+                    'Aceleration en Z: ' + acceleration.z + '<br />' +
+                    'Intervalo: '      + acceleration.timestamp + '<br />' ;
 }
 
 // Error: Falla al obtener la acelaracion
@@ -45,16 +44,12 @@ function Error() {
 alert('Error!');
 }
 //Exito al localizar
-fucntion Localiza(posicion) {
-var element = document.getElementById(geolocalizacion');
-element.innerHTML = 'Latitud: '          +posicion.coords.latitude      + '
-<br />' +
-                    'Longitud: '         +posicion.coords.longitude     + '
-<br />' +
-                    'Altitud: '          +posicion.coords.altitude      + '
-<br />' +
-                    'Precision: '         +posicion.coords.accuracy     + '
-<br />' +
+function Localiza(posicion) {
+var element = document.getElementById('geolocalizacion');
+element.innerHTML = 'Latitud: '          + posicion.coords.latitude      + '<br />' +
+                    'Longitud: '         + posicion.coords.longitude     + '<br />' +
+                    'Altitud: '          +posicion.coords.altitude      + '<br />' +
+                    'Precision: '         +posicion.coords.accuracy     + '<br />' +
                     'Precision de Altitud:'  +posicion.coords.altitudeAccuracy
 + '<br />' +
                     'Direccion: '            +posicion.coords.heading
@@ -70,4 +65,4 @@ function ErrorLocalizacion(error) {
 alert('codigo: ' +error.code + '\n'+
 'mensaje:'+error.message + '\n');
 }
-};//documento ready
+});//documento ready
